@@ -30,12 +30,12 @@ namespace ConsoleApp1
                 }
                 else
                 {
-                    LooseGame();
+                    LoseGame();
                 }
             }
         }
 
-        private static void LooseGame()
+        private static void LoseGame()
         {
             Console.WriteLine("*The dark souls you died message apears*" + Environment.NewLine + "Hit space to restart...");
             while (Console.ReadKey().Key != ConsoleKey.Spacebar) { };
