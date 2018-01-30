@@ -1,0 +1,6 @@
+C:\development\game\game\game_1\game_1\bin\Debug\game_1.exe.config
+C:\development\game\game\game_1\game_1\bin\Debug\game_1.exe
+C:\development\game\game\game_1\game_1\bin\Debug\game_1.pdb
+C:\development\game\game\game_1\game_1\obj\Debug\game_1.csprojResolveAssemblyReference.cache
+C:\development\game\game\game_1\game_1\obj\Debug\game_1.exe
+C:\development\game\game\game_1\game_1\obj\Debug\game_1.pdb
