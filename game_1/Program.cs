@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -74,6 +75,7 @@ namespace ConsoleApp1
 
         private static bool Door()
         {
+            int milliseconds = 900;
             string sUserChoie = "";
             string sUserName = "";
             bool bDoorOpens = false;
@@ -89,7 +91,9 @@ namespace ConsoleApp1
             else
             {
                 Console.WriteLine("You try to {0}, but nothing happens!", sUserChoie);
+                Thread.Sleep(milliseconds);
                 Console.WriteLine("Your trapped forever!");
+                Thread.Sleep(milliseconds);
                 Console.WriteLine("Hit space to try again");
                 while (Console.ReadKey().Key != ConsoleKey.Spacebar) { };
                 Console.Clear();
@@ -101,23 +105,56 @@ namespace ConsoleApp1
 
         private static string UserEnterName()
         {
-            string sUserName = "";
+
             Console.Clear();
+            string sUserName = "";
+           
             Console.WriteLine("Welcome!");
-            Console.Write("Please adventurer, Enter Your name: ");
+            int milliseconds = 900;
+            Thread.Sleep(milliseconds);
+            Console.Write("Please adventurer, Enter Your name: ");            
             sUserName = Convert.ToString(Console.ReadLine());
+           
             return sUserName;
         }
 
         private static void StartingStory()
         {
-            string cUserInput = "";
-            bool bReturnToMain = false;
+            
             Console.WriteLine("Hello,");
+            int milliseconds = 900;
+            Thread.Sleep(milliseconds);
             Console.WriteLine("Enter space to start your story...");
-            while (Console.ReadKey().Key != ConsoleKey.Spacebar) { };
+            ConsoleKey test = Console.ReadKey().Key;
+            if (test == ConsoleKey.Spacebar)
+            {
+               
+            }
+            else if (test == ConsoleKey.Escape)
+            {
+                Terminate();
+            }
+            else
+            {
+                StartingStory();
+            }
+
+            
+
 
 
         }
+        private static void Terminate()
+        {
+            string UserAnswer = "";
+            Console.Write("Are you sure you want to quit? ");
+            UserAnswer = Convert.ToString(Console.ReadLine());
+            UserAnswer = UserAnswer.ToLower();
+            if (UserAnswer == "yes")
+            {
+                Environment.Exit(1);
+            }
+        }
+
     }
 }
