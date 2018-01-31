@@ -9,10 +9,12 @@ namespace ConsoleApp1
 {
     class Program
     {
+
         static void Main(string[] args)
         {
             //Complete
-            Game();
+            Game(); 
+            
 
         }
 
@@ -58,101 +60,158 @@ namespace ConsoleApp1
 
         private static bool FoodRoom()
         {
+            ConsoleKey test;
             bool bRedPill = false;
             string sUserChoice = "";
             string Text = "You walk out into a eerie hall, with a small table facing you." + Environment.NewLine + "On the table are two pills, one red and one blue, with a note in front of each saying 'Eat me'. " + Environment.NewLine + "What do you do? ";
-            TypeLine(Text);
-            sUserChoice = Convert.ToString(Console.ReadLine());
-            sUserChoice = sUserChoice.ToLower();
-            if (sUserChoice == "eat red pill")
+            do
             {
-                Text = "You eat the red pill, suddenly the world clapses around you and you wake up!" + Environment.NewLine;
                 TypeLine(Text);
+                test = Console.ReadKey(true).Key;
+                if (test == ConsoleKey.Escape)
+                {
+                    Terminate();
+                }
+                else
+                {
+                    Console.Write(test);
+                    sUserChoice = Convert.ToString(Console.ReadLine());
+                    sUserChoice = (test + sUserChoice);
+                    sUserChoice = sUserChoice.ToLower();
+                    if (sUserChoice == "eat red pill")
+                    {
+                        Text = "You eat the red pill, suddenly the world clapses around you and you wake up!" + Environment.NewLine;
+                        TypeLine(Text);
 
-                bRedPill = true;
-            }
-            else
-            {
-                Text = "You try to " + sUserChoice + " , but suddenly the world folds in on itself and you become nothing..." + Environment.NewLine;
-                TypeLine(Text);
-            }
+                        bRedPill = true;
+                        break;
+                    }
+                    else
+                    {
+                        Text = "You try to " + sUserChoice + " , but suddenly the world folds in on itself and you become nothing..." + Environment.NewLine;
+                        TypeLine(Text);
+                        break;
+                    }
+
+                }
+                //sUserChoice = Convert.ToString(Console.ReadLine());
+                //sUserChoice = sUserChoice.ToLower();
+                //if (sUserChoice == "eat red pill")
+                //{
+                //    Text = "You eat the red pill, suddenly the world clapses around you and you wake up!" + Environment.NewLine;
+                //    TypeLine(Text);
+
+                //    bRedPill = true;
+                //}
+                //else
+                //{
+                //    Text = "You try to " + sUserChoice + " , but suddenly the world folds in on itself and you become nothing..." + Environment.NewLine;
+                //    TypeLine(Text);
+                //} 
+            } while (true);
             return bRedPill;
         }
 
         private static bool Door()
         {
+            ConsoleKey test;
             int milliseconds = 100;
             string sUserChoice = "";
             string sUserName = "";
             bool bDoorOpens = false;
             sUserName = UserEnterName();
-            string Text = "Welcome " + sUserName + " to your adventure! You wake in a cold dark room, and all you can see is a wooden door. " + Environment.NewLine + "What would you like to do? ";
-            TypeLine(Text);
-            sUserChoice = Convert.ToString(Console.ReadLine());
-            sUserChoice = sUserChoice.ToLower();
-            if (sUserChoice == "open door")
+            do
             {
-                bDoorOpens = true;
-                Text = "With a loud creak, the door opens!";
-            }
-            else
-            {
-                Text = "You try to " + sUserChoice + ", but nothing happens!" + Environment.NewLine;
+                string Text = "Welcome " + sUserName + " to your adventure! You wake in a cold dark room, and all you can see is a wooden door. " + Environment.NewLine + "What would you like to do? ";
                 TypeLine(Text);
-                Thread.Sleep(milliseconds);
-                Text = "Your trapped forever!" + Environment.NewLine;
-                TypeLine(Text);
-                Thread.Sleep(milliseconds);
-                Text = "Hit space to try again";
-                TypeLine(Text);
-                while (Console.ReadKey().Key != ConsoleKey.Spacebar) { };
-                Console.Clear();
-                Game();
+                test = Console.ReadKey(true).Key;
+                if (test == ConsoleKey.Escape)
+                {
+                    Terminate();
+                }
+                else
+                {
+                    Console.Write(test);
+                    sUserChoice = Convert.ToString(Console.ReadLine());
+                    sUserChoice = (test + sUserChoice);
+                    sUserChoice = sUserChoice.ToLower();
+                    if (sUserChoice == "open door")
+                    {
+                        bDoorOpens = true;
+                        Text = "With a loud creak, the door opens!";
+                        break;
+                    }
+                    else
+                    {
+                        Text = "You try to " + sUserChoice + ", but nothing happens!" + Environment.NewLine;
+                        TypeLine(Text);
+                        Thread.Sleep(milliseconds);
+                        Text = "Your trapped forever!" + Environment.NewLine;
+                        TypeLine(Text);
+                        Thread.Sleep(milliseconds);
+                        Text = "Hit space to try again";
+                        TypeLine(Text);
+                        while (Console.ReadKey().Key != ConsoleKey.Spacebar) { };
+                        Console.Clear();
+                        Game();
 
-            }
+                    }
+                }
+            } while (true);
             return bDoorOpens;
         }
 
         private static string UserEnterName()
         {
-
+            ConsoleKey test;
             Console.Clear();
             string sUserName = "";
-           
-            string Text = "Welcome!" + Environment.NewLine;
-            TypeLine(Text);
-            int milliseconds = 100;
-            Thread.Sleep(milliseconds);
-            Text = "Please adventurer, Enter Your name: ";
-            TypeLine(Text);
 
-            sUserName = Convert.ToString(Console.ReadLine());
+            do
+            {
+                string Text = "Welcome!" + Environment.NewLine;
+                TypeLine(Text);
+                int milliseconds = 100;
+                Thread.Sleep(milliseconds);
+                Text = "Please adventurer, Enter Your name: ";
+                TypeLine(Text);
+
+                test = Console.ReadKey(true).Key;
+                if (test == ConsoleKey.Escape)
+                {
+                    Terminate();
+                }
+                else
+                {
+                    Console.Write(test);
+                    sUserName = Convert.ToString(Console.ReadLine());
+                    sUserName = (test + sUserName);
+                }
+            } while (sUserName == "");
+
            
             return sUserName;
         }
 
         private static void StartingStory()
         {
-            
-            string Text = "Hello," + Environment.NewLine;
-            TypeLine(Text);
-            int milliseconds = 100;
-            Thread.Sleep(milliseconds);
-            Text = "Enter space to start your story...";
-            TypeLine(Text);
-            ConsoleKey test = Console.ReadKey().Key;
-            if (test == ConsoleKey.Spacebar)
+            ConsoleKey test;
+            do
             {
-               
-            }
-            else if (test == ConsoleKey.Escape)
-            {
-                Terminate();
-            }
-            else
-            {
-                StartingStory();
-            }
+                string Text = "Hello," + Environment.NewLine;
+                TypeLine(Text);
+                int milliseconds = 100;
+                Thread.Sleep(milliseconds);
+                Text = "Enter space to start your story...";
+                TypeLine(Text);
+                test = Console.ReadKey(true).Key;
+                if (test == ConsoleKey.Escape)
+                {
+                    Terminate();
+                }
+
+            } while (test != ConsoleKey.Spacebar);
+
 
             
 
@@ -176,7 +235,7 @@ namespace ConsoleApp1
             for (int i = 0; i < line.Length; i++)
             {
                 Console.Write(line[i]);
-                System.Threading.Thread.Sleep(40); // Sleep for 150 milliseconds
+                System.Threading.Thread.Sleep(40);
             }
         }
 
