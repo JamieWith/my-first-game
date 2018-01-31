@@ -38,7 +38,8 @@ namespace ConsoleApp1
 
         private static void LoseGame()
         {
-            Console.WriteLine("*The dark souls you died message apears*" + Environment.NewLine + "Hit space to restart...");
+            string Text = "*The dark souls you died message apears*" + Environment.NewLine + "Hit space to restart...";
+            TypeLine(Text);
             while (Console.ReadKey().Key != ConsoleKey.Spacebar) { };
             Console.Clear();
             Game();
@@ -47,7 +48,8 @@ namespace ConsoleApp1
 
         private static void WinGame()
         {
-            Console.WriteLine("Congrats, You won the game!" + Environment.NewLine + "Hit space to restart...");
+            string Text = "Congrats, You won the game!" + Environment.NewLine + "Hit space to restart...";
+            TypeLine(Text);
             while (Console.ReadKey().Key != ConsoleKey.Spacebar) { };
             Console.Clear();
             Game();
@@ -58,43 +60,51 @@ namespace ConsoleApp1
         {
             bool bRedPill = false;
             string sUserChoice = "";
-            Console.Write("You walk out into a eerie hall, with a small table facing you." + Environment.NewLine + "On the table are two pills, one red and one blue, with a note in front of each saying 'Eat me'. " + Environment.NewLine + "What do you do? ");
+            string Text = "You walk out into a eerie hall, with a small table facing you." + Environment.NewLine + "On the table are two pills, one red and one blue, with a note in front of each saying 'Eat me'. " + Environment.NewLine + "What do you do? ";
+            TypeLine(Text);
             sUserChoice = Convert.ToString(Console.ReadLine());
             sUserChoice = sUserChoice.ToLower();
             if (sUserChoice == "eat red pill")
             {
-                Console.WriteLine("You eat the red pill, suddenly the world clapses around you and you wake up!");
+                Text = "You eat the red pill, suddenly the world clapses around you and you wake up!" + Environment.NewLine;
+                TypeLine(Text);
+
                 bRedPill = true;
             }
             else
             {
-                Console.WriteLine("You try to {0}, but suddenly the world folds in on itself and you become nothing...", sUserChoice);
+                Text = "You try to " + sUserChoice + " , but suddenly the world folds in on itself and you become nothing..." + Environment.NewLine;
+                TypeLine(Text);
             }
             return bRedPill;
         }
 
         private static bool Door()
         {
-            int milliseconds = 900;
-            string sUserChoie = "";
+            int milliseconds = 100;
+            string sUserChoice = "";
             string sUserName = "";
             bool bDoorOpens = false;
             sUserName = UserEnterName();
-            Console.Write("Welcome {0} to your adventure! You wake in a cold dark room, and all you can see is a wooden door. " + Environment.NewLine + "What would you like to do? ", sUserName);
-            sUserChoie = Convert.ToString(Console.ReadLine());
-            sUserChoie = sUserChoie.ToLower();
-            if (sUserChoie == "open door")
+            string Text = "Welcome " + sUserName + " to your adventure! You wake in a cold dark room, and all you can see is a wooden door. " + Environment.NewLine + "What would you like to do? ";
+            TypeLine(Text);
+            sUserChoice = Convert.ToString(Console.ReadLine());
+            sUserChoice = sUserChoice.ToLower();
+            if (sUserChoice == "open door")
             {
                 bDoorOpens = true;
-                Console.WriteLine("With a loud creak, the door opens!");
+                Text = "With a loud creak, the door opens!";
             }
             else
             {
-                Console.WriteLine("You try to {0}, but nothing happens!", sUserChoie);
+                Text = "You try to " + sUserChoice + ", but nothing happens!" + Environment.NewLine;
+                TypeLine(Text);
                 Thread.Sleep(milliseconds);
-                Console.WriteLine("Your trapped forever!");
+                Text = "Your trapped forever!" + Environment.NewLine;
+                TypeLine(Text);
                 Thread.Sleep(milliseconds);
-                Console.WriteLine("Hit space to try again");
+                Text = "Hit space to try again";
+                TypeLine(Text);
                 while (Console.ReadKey().Key != ConsoleKey.Spacebar) { };
                 Console.Clear();
                 Game();
@@ -109,10 +119,13 @@ namespace ConsoleApp1
             Console.Clear();
             string sUserName = "";
            
-            Console.WriteLine("Welcome!");
-            int milliseconds = 900;
+            string Text = "Welcome!" + Environment.NewLine;
+            TypeLine(Text);
+            int milliseconds = 100;
             Thread.Sleep(milliseconds);
-            Console.Write("Please adventurer, Enter Your name: ");            
+            Text = "Please adventurer, Enter Your name: ";
+            TypeLine(Text);
+
             sUserName = Convert.ToString(Console.ReadLine());
            
             return sUserName;
@@ -121,10 +134,12 @@ namespace ConsoleApp1
         private static void StartingStory()
         {
             
-            Console.WriteLine("Hello,");
-            int milliseconds = 900;
+            string Text = "Hello," + Environment.NewLine;
+            TypeLine(Text);
+            int milliseconds = 100;
             Thread.Sleep(milliseconds);
-            Console.WriteLine("Enter space to start your story...");
+            Text = "Enter space to start your story...";
+            TypeLine(Text);
             ConsoleKey test = Console.ReadKey().Key;
             if (test == ConsoleKey.Spacebar)
             {
@@ -147,12 +162,21 @@ namespace ConsoleApp1
         private static void Terminate()
         {
             string UserAnswer = "";
-            Console.Write("Are you sure you want to quit? ");
+            string Text = "Are you sure you want to quit? ";
+            TypeLine(Text);
             UserAnswer = Convert.ToString(Console.ReadLine());
             UserAnswer = UserAnswer.ToLower();
             if (UserAnswer == "yes")
             {
                 Environment.Exit(1);
+            }
+        }
+        static void TypeLine(string line)
+        {
+            for (int i = 0; i < line.Length; i++)
+            {
+                Console.Write(line[i]);
+                System.Threading.Thread.Sleep(40); // Sleep for 150 milliseconds
             }
         }
 
