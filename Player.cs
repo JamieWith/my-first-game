@@ -29,7 +29,7 @@ namespace Game_Rework
             get { return potUse; }
             set { potUse = value; }
         }
-        public static void Check(int playerHp)
+        public void Check(int playerHp)
         {
             if (playerHp <= 10)
             {
@@ -56,7 +56,7 @@ namespace Game_Rework
             get { return abilityChoice; }
             set { abilityChoice = value; }
         }
-        public static int Punch(int hostileHp)
+        public int Punch(int hostileHp)
         {
             Console.WriteLine("You punched!");
             hostileHp = hostileHp - 10;
@@ -64,21 +64,21 @@ namespace Game_Rework
             return hostileHp;
             
         }
-        public static int Kick(int hostileHp)
+        public int Kick(int hostileHp)
         {
             Console.WriteLine("You Kicked!");
             hostileHp = hostileHp - 25;
             Console.WriteLine("The hostile has " + hostileHp + " HP");
             return hostileHp;
         }
-        public static int Knee(int hostileHp)
+        public int Knee(int hostileHp)
         {
             Console.WriteLine("You Kneed!");
             hostileHp = hostileHp - 15;
             Console.WriteLine("The hostile has " + hostileHp + " HP");
             return hostileHp;
         }
-        public static int Elbow(int hostileHp)
+        public int Elbow(int hostileHp)
         {
             Console.WriteLine("You Elbowed!");
             hostileHp = hostileHp - 5;
