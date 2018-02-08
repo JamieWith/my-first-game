@@ -288,18 +288,22 @@ namespace Game_Rework
                         case 1:
                             Spider.HostileHp = Player.Punch(Spider.HostileHp);
                             playerHp.PlayerHp = Spider.SpiderAttackSelector(playerHp.PlayerHp);
+                            Player.Check(playerHp.PlayerHp);
                             break;
                         case 2:
                             Spider.HostileHp = Player.Kick(Spider.HostileHp);
                             playerHp.PlayerHp = Spider.SpiderAttackSelector(playerHp.PlayerHp);
+                            Player.Check(playerHp.PlayerHp);
                             break;
                         case 3:
                             Spider.HostileHp = Player.Knee(Spider.HostileHp);
                             playerHp.PlayerHp = Spider.SpiderAttackSelector(playerHp.PlayerHp);
+                            Player.Check(playerHp.PlayerHp);
                             break;
                         case 4:
                             Spider.HostileHp = Player.Elbow(Spider.HostileHp);
                             playerHp.PlayerHp = Spider.SpiderAttackSelector(playerHp.PlayerHp);
+                            Player.Check(playerHp.PlayerHp);
                             break;
                         default:
                             Console.WriteLine("Thats not an option!");

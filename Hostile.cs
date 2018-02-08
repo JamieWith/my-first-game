@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game_Rework
 {
-    class Hostile
+    public class Hostile
     {
         private int hostileHp;
 

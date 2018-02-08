@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Game_Rework
 {
-    class State
+    public class State
     {
-        private string currentScene;
+        public string currentScene;
 
         public State(string currentScene)
         {
@@ -21,7 +21,7 @@ namespace Game_Rework
             set { currentScene = value; }
         }
 
-        private int moveCount;
+        public int moveCount;
 
         public State(int moveCount)
         {

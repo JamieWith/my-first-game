@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Game_Rework
 {
-    class Player
+    public class Player
     {
-        private int playerHp;
+        public int playerHp;
         private int potUse = 1;
         private int abilityChoice;
 
