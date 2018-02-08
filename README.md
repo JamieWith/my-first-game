@@ -1,13 +1,11 @@
 # my-first-game
 A silly game Dan made me make...
 
-Your trapped in a hall and you need to escape!
-Instructions:
-Play the game!
-Hints: Be Neo, obviously...
-Cheats:
-open door
-eat red pill
+Basically try commands that you think will work,
+after 3 tries you get hints,
+If the spider has RNG on its side, you will loose
+
+Enjoy :)
 
 this is by Jamie
 
