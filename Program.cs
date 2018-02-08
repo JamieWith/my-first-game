@@ -116,6 +116,7 @@ namespace Game_Rework
                         else
                         {
                             attemptcount2 = attemptcount2 + 1;
+                            moveCount.MoveCount = moveCount.MoveCount + 1;
                             Console.WriteLine("That isnt an option here!");
                             if (attemptcount2 == 3)
                             {
@@ -129,6 +130,7 @@ namespace Game_Rework
                 else
                 {
                     attemptcount = attemptcount + 1;
+                    moveCount.MoveCount = moveCount.MoveCount + 1;
                     Console.WriteLine("That isnt an option here!");
                     if (attemptcount == 3)
                     {
@@ -169,6 +171,7 @@ namespace Game_Rework
                 else
                 {
                     attemptcount = attemptcount + 1;
+                    moveCount.MoveCount = moveCount.MoveCount + 1;
                     Console.WriteLine("That isnt an option here!");
                     Console.WriteLine("You're in a hallway. There are 2 ways you can go: left or right");
                     Console.WriteLine("Where will you go?");
@@ -223,6 +226,7 @@ namespace Game_Rework
                 else
                 {
                     attemptcount = attemptcount + 1;
+                    moveCount.MoveCount = moveCount.MoveCount + 1;
                     Console.WriteLine("That isnt an option here!");
                     if (attemptcount == 3)
                     {
@@ -333,6 +337,7 @@ namespace Game_Rework
             }
             else
             {
+                moveCount.MoveCount = moveCount.MoveCount + 1;
                 Console.WriteLine("You shoot back up the ladder!");
                 Ladder();
             }
