@@ -9,8 +9,8 @@ namespace Game_Rework
     public class Player
     {
         public int playerHp;
-        private int potUse = 1;
-        private int abilityChoice;
+        public int potUse = 1;
+        public int abilityChoice;
 
         public Player(int playerHp)
         {
@@ -29,7 +29,7 @@ namespace Game_Rework
             get { return potUse; }
             set { potUse = value; }
         }
-        public void Check(int playerHp)
+        public static void Check(int playerHp)
         {
             if (playerHp <= 10)
             {
@@ -56,7 +56,7 @@ namespace Game_Rework
             get { return abilityChoice; }
             set { abilityChoice = value; }
         }
-        public int Punch(int hostileHp)
+        public static int Punch(int hostileHp)
         {
             Console.WriteLine("You punched!");
             hostileHp = hostileHp - 10;
@@ -64,21 +64,21 @@ namespace Game_Rework
             return hostileHp;
             
         }
-        public int Kick(int hostileHp)
+        public static int Kick(int hostileHp)
         {
             Console.WriteLine("You Kicked!");
             hostileHp = hostileHp - 25;
             Console.WriteLine("The hostile has " + hostileHp + " HP");
             return hostileHp;
         }
-        public int Knee(int hostileHp)
+        public static int Knee(int hostileHp)
         {
             Console.WriteLine("You Kneed!");
             hostileHp = hostileHp - 15;
             Console.WriteLine("The hostile has " + hostileHp + " HP");
             return hostileHp;
         }
-        public int Elbow(int hostileHp)
+        public static int Elbow(int hostileHp)
         {
             Console.WriteLine("You Elbowed!");
             hostileHp = hostileHp - 5;
