@@ -47,10 +47,13 @@ namespace Game_Rework
 
         private static void FirstRoom()
         {
+            int LockChoice = 0;
+            int LockChance = 0;
             int attemptcount = 0;
             int attemptcount2 = 0;
             bool complete;
             bool complete2 = false;
+            bool complete3 = false;
             var rnd = new Random();
             currentScene.CurerntScene = "Room 1: Dungeon";
             moveCount.MoveCount = 0;
@@ -87,11 +90,25 @@ namespace Game_Rework
                             var DoorOpen = false;
                             moveCount.MoveCount = moveCount.MoveCount + 1;
                             Console.WriteLine("You go to pick the lock...");
-                            var LockChance = rnd.Next(1, 5);
-                            Console.WriteLine("Guess the number of cogs in the lock...(1 - 4)");
+                            LockChance = rnd.Next(1, 5);
+                            
                             do
                             {
-                                var LockChoice = Convert.ToInt16(Console.ReadLine());
+                                do
+                                {
+                                    try
+                                    {
+                                        Console.WriteLine("Guess the number of cogs in the lock...(1 - 4)");
+                                        LockChoice = Convert.ToInt16(Console.ReadLine());
+                                        complete3 = true;
+                                    }
+                                    catch (Exception)
+                                    {
+
+                                        Console.WriteLine("Enter either 1, 2, 3, 4");
+                                        complete3 = false;
+                                    }
+                                } while (complete3 != true);
                                 moveCount.MoveCount = moveCount.MoveCount + 1;
                                 if (LockChoice == LockChance)
                                 {
