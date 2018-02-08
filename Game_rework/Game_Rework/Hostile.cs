@@ -24,21 +24,26 @@ namespace Game_Rework
         }
         public int SpiderAttackSelector(int playerHp)
         {
+            int dmg;
             Random rnd = new Random();
-            int AttackSelect = 1;
+            int AttackSelect = rnd.Next(1, 5);
             switch (AttackSelect)
             {
                 case 1:
-                    SpiderBite(playerHp);
+                    dmg = SpiderBite(playerHp);
+                    playerHp = playerHp - dmg;
                     break;
                 case 2:
-                    SpiderWebAttack(playerHp);
+                    dmg = SpiderWebAttack(playerHp);
+                    playerHp = playerHp - dmg;
                     break;
                 case 3:
-                    SpiderSpit(playerHp);
+                    dmg = SpiderSpit(playerHp);
+                    dmg = playerHp = playerHp - dmg;
                     break;
                 case 4:
-                    SpiderSwingSlam(playerHp);
+                    dmg = SpiderSwingSlam(playerHp);
+                    playerHp = playerHp - dmg;
                     break;
                 default:
                     break;
@@ -47,32 +52,45 @@ namespace Game_Rework
 
         }
 
-        private void SpiderSwingSlam(int playerHp)
+        public int SpiderSwingSlam(int playerHp)
         {
+            int dmg = 40;
+            playerHp = playerHp - dmg;
             Console.WriteLine("The spider swung in and slammed you!");
-            playerHp = playerHp -40;
-            Console.WriteLine("You have " + playerHp + " left!");
+            Console.WriteLine("You have " + playerHp + " HP");
+            return dmg;
         }
 
-        private void SpiderSpit(int playerHp)
+        public int SpiderSpit(int playerHp)
         {
+            int dmg = 5;
+            playerHp = playerHp - dmg;
             Console.WriteLine("The spider spat at you!");
-            playerHp = playerHp - 5;
-            Console.WriteLine("You have " + playerHp + " left!");
+            Console.WriteLine("You have " + playerHp + " HP");
+
+            return dmg;
         }
 
-        private void SpiderWebAttack(int playerHp)
+        public int SpiderWebAttack(int playerHp)
         {
+            int dmg = 15;
+            playerHp = playerHp - dmg;
             Console.WriteLine("The spider shot you with its webs!");
-            playerHp = playerHp - 15;
-            Console.WriteLine("You have " + playerHp + " left!");
+            Console.WriteLine("You have " + playerHp + " HP");
+
+
+            return dmg;
         }
 
-        private void SpiderBite(int playerHp)
+        public int SpiderBite(int playerHp)
         {
+            int dmg = 10;
+            playerHp = playerHp - dmg;
             Console.WriteLine("The spider bit you!");
-            playerHp = playerHp - 10;
-            Console.WriteLine("You have " + playerHp + " left!");
+            Console.WriteLine("You have " + playerHp + " HP");
+
+
+            return dmg;
         }
     }
 }

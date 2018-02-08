@@ -60,9 +60,30 @@ namespace Game_Rework
         {
             Console.WriteLine("You punched!");
             hostileHp = hostileHp - 10;
-            Console.WriteLine("The hostile has " + hostileHp + " left!");
+            Console.WriteLine("The hostile has " + hostileHp + " HP");
             return hostileHp;
             
+        }
+        public static int Kick(int hostileHp)
+        {
+            Console.WriteLine("You Kicked!");
+            hostileHp = hostileHp - 25;
+            Console.WriteLine("The hostile has " + hostileHp + " HP");
+            return hostileHp;
+        }
+        public static int Knee(int hostileHp)
+        {
+            Console.WriteLine("You Kneed!");
+            hostileHp = hostileHp - 15;
+            Console.WriteLine("The hostile has " + hostileHp + " HP");
+            return hostileHp;
+        }
+        public static int Elbow(int hostileHp)
+        {
+            Console.WriteLine("You Elbowed!");
+            hostileHp = hostileHp - 5;
+            Console.WriteLine("The hostile has " + hostileHp + " HP");
+            return hostileHp;
         }
 
 
